@@ -1,3 +1,5 @@
+#用队列实现栈
+
 from p41_sqQueue import SqQueue
 
 class MyStack:

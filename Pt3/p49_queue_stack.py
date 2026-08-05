@@ -1,3 +1,5 @@
+#用栈实现队列
+
 from p34_sqstack import SqStack
 
 class MyQueue:
@@ -28,5 +30,5 @@ class MyQueue:
 
 #那么有人就要问了，主播主播，这个move方法是什么玩意
 #可以把stack1看成缓存，每次需要peek或者pop（就是poll）的时候就把stack1的东西倒进stack2再peek或者pop
-#push的时候先进入缓存（stack1）
+#push的时候先进入缓存（stack1），只有stack2pop完了（就是没有成员了）再把stack1的东西move到stack2
 #这样实现的队列就和普通的队列一样了。（pop方法就是poll方法）
