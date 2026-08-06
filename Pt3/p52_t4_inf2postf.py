@@ -1,23 +1,50 @@
+#前缀转后缀，详细的可以自己查。
+
 from p34_sqstack import SqStack
+
+prior = {"+":1,"-":1,"*":2,"/":2}
 
 def infix_to_postfix(expr):
     stack1 = SqStack(999)
     output = str()
-    in_stack = False
+
     for ch in expr:
-        if not ch in  "(*/+-)":
+        print(output)
+        if not ch in  "(*/+-)":#如果是字母，直接推
             output += ch
-        else:
-            if ch == "(":
+        else:#运算符号的进一步判断
+            if ch == "(":#前括号
                 stack1.push("(")
-                in_stack = True
+            elif ch == ")":#后括号
+                temp = stack1.pop()
+                while temp != "(":
+                    output += temp
+                    temp = stack1.pop()
+            else:#是加减乘除符号
+                if stack1.isEmpty():#栈为空的情况
+                    stack1.push(ch)#推送
+                elif stack1.peek() in "*/+-":#栈不为空且栈顶为运算符
+                    while (not stack1.isEmpty()
+                           and stack1.peek() != "("
+                           and prior[stack1.peek()] >= prior[ch]):
+                        output += stack1.pop()
+                    stack1.push(ch)
+                else:#栈顶为前括号"("
+                    stack1.push(ch)
+    while not stack1.isEmpty():
+        output += stack1.pop()
+    return output
 
-
-
-
+print(infix_to_postfix("a+b+c*e/f+a-d"))
 
 
 '''
+
+((a * (b+c)) - (d/e))
+
+a*(b+c) - d/e
+abc+*de/-
+
 assert infix_to_postfix("a+b*c")     == "abc*+"
 assert infix_to_postfix("(a+b)*c")   == "ab+c*"
 assert infix_to_postfix("a+b*(c-d)/e") == "abcd-*e/+"
