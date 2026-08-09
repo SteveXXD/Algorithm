@@ -11,3 +11,4 @@ print(c[1])
 
 string1.delete(0,1)
 string1.display()
+
