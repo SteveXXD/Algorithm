@@ -53,7 +53,7 @@ class SqString(IString):
             raise Exception("插入位置不合法")
         new_capacity = self.curlen + string.length()
         self.allocate(new_capacity)
-        for j in range(self.curlen - 1, i, -1):
+        for j in range(self.curlen - 1, i - 1, -1):
             self.strValue[j + string.length()] = self.strValue[j]
         for j in range(i, i + string.length()):
             self.strValue[j] = string.charAt(j - i)  # j-i就是0,1,2,3,4,5,...
