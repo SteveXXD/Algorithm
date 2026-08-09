@@ -1,6 +1,6 @@
 from p54_sqstring import SqString
 
-def get_next(p):
+def next_minus_1(p):
     next = [0] * p.length()
     k = 0
     j = 1
@@ -18,6 +18,6 @@ def get_next(p):
             k = next[k]
     return next
 
-string1 = SqString("abcababcdabcabcde")
-nxt = get_next(string1)
+string1 = SqString("abaab")
+nxt = next_minus_1(string1)
 print(nxt)
