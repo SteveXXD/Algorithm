@@ -8,3 +8,6 @@ string1.subString(0,4).display() #subString 左闭右开
 b = "ab abcdefg"
 c = b.split(" ")#返回一个list
 print(c[1])
+
+string1.delete(0,1)
+string1.display()
