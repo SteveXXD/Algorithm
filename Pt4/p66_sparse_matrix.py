@@ -31,9 +31,14 @@ class SparseMatrix(object):
                     self.data[k] = TripleNode(i,j,mat[i][j])
                     k += 1
 
+    def display(self):
+        for m in self.data:
+            print(m.value,end=" ")
+
 
 #将原大小为90的稀疏矩阵压缩为10
 
+'''
 matrixColumn = [0,1,0,0,0,0,0,0,0,0]
 matrix1 = [0] * 10
 
@@ -43,3 +48,5 @@ for j in range(10):
 sparse_matrix1 = SparseMatrix(91)
 sparse_matrix1.create(matrix1)
 print(sparse_matrix1.nums)
+'''
+
