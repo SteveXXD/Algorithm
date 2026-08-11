@@ -42,16 +42,26 @@ class BiTree(object):
     def preOrder2(root):
         p = root
         s = LinkStack()
-        s.push(p)
-        while not s.isEmpty():
-            p = s.pop()
-            print(p.data,end = " ")
+        while (not s.isEmpty()) or (p is not None):
             while p is not None:
-                if p.lchild is not None:
-                    print(p.lchild.data,end= " ")
-                if p.rchild is not None:
-                    s.push(p.rchild)
+                print(p.data, end=" ")
+                s.push(p)
                 p = p.lchild
+            p = s.pop()
+            p = p.rchild
+
+    @staticmethod
+    def inOrder2(root):
+        p = root
+        s = LinkStack()
+        while (not s.isEmpty()) or (p is not None):
+            while p is not None:
+                s.push(p)
+                p = p.lchild
+            p = s.pop()
+            print(p.data,end=" ")
+            p = p.rchild
+
 
 
 
