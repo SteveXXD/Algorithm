@@ -1,3 +1,6 @@
+import math
+
+
 class BiTreeNode(object):
     def __init__(self,key,data,lchild=None,rchild=None):
         self.key = key
@@ -49,7 +52,7 @@ class BSTree(object):
         elif p.key < key:
             self.removeBST(key,p.rchild,p)
         elif p.lchild is not None and p.rchild is not None:
-            in_next = p.lchild
+            in_next = p.rchild
             while in_next.lchild is not None:
                 in_next = in_next.lchild
             p.data = in_next.data
@@ -74,3 +77,27 @@ class BSTree(object):
                 else:
                     parent.rchild = p.rchild
 
+
+l = map(int,input().split())
+tree1 = BSTree()
+
+for ch in l:
+    tree1.insert(ch,ch)
+
+res = []
+p = tree1.root
+mn = math.inf
+
+def inOrder(root):
+    if root is not None:
+        inOrder(root.lchild)
+        res.append(root.data)
+        inOrder(root.rchild)
+
+inOrder(tree1.root)
+
+for i in range(1,len(res)):
+    if res[i] - res[i-1] < mn:
+        mn = res[i] - res[i-1]
+
+print(mn)
