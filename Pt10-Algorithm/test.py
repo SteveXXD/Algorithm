@@ -1,3 +1,2 @@
-l = ["Mos","France","Japan"]
-l.sort()
-print(l)
+a = "abcde"
+print("abd" in a)
