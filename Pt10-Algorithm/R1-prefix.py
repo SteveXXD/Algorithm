@@ -8,3 +8,4 @@ m = int(input())
 for _ in range(m):
     l,r = map(int,input().split())
     print(pre[r] - pre[l-1])
+
