@@ -1,0 +1,26 @@
+R = int(input())
+
+tri = []
+for _ in range(R):
+    row = list(map(int, input().split()))
+    tri.append(row)
+
+mem = [[-1] * R for _ in range(R)]
+mem[0][0] = tri[0][0]
+
+def dp(i,j):
+    if j < 0 or j > i:
+        return 0
+    if mem[i][j] != -1:
+        return mem[i][j]
+    else:
+        if i == 0 and j == 0:
+            return tri[0][0]
+        mem[i][j] = max(dp(i-1,j),dp(i-1,j-1)) + tri[i][j]
+        return mem[i][j]
+
+res = []
+for i in range(R):
+    res.append(dp(R-1,i))
+
+print(max(res))
