@@ -1,3 +1,2 @@
-a = "abcd"
-b = list(a)
-print(b)
+mem = [[-1]*5 for _ in range(5)]
+print(mem)
