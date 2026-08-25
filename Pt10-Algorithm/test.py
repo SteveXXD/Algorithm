@@ -1,4 +1,3 @@
-a = {5,4,3,2,1}
+a = "abcd"
 b = list(a)
-
 print(b)
