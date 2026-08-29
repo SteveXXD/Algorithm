@@ -55,6 +55,6 @@ while idx < len(tokens):
     n = int(tokens[idx]); idx += 1
     a = []
     for _ in range(n):
-        a.append(tokens[idx:idx + n])   # 一行 n 个
+        a.append(tokens[idx:idx + n])
         idx += n
     main(n, a)

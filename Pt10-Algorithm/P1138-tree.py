@@ -7,6 +7,6 @@ def post(pre, ino):
     left_pre, right_pre = pre[1:1+k], pre[1+k:]
     return post(left_pre, left_in) + post(right_pre, right_in) + root
 
-ino = input().strip()
-pre = input().strip()
+ino = input()
+pre = input()
 print(post(pre, ino))
