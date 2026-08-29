@@ -1,3 +1,2 @@
-import re
-a = re.findall(r"\d+\.\d+","height:1.75,weight:65.5")
-print(a[1])
+a = (1,2,3,4,5)
+b = (5,4,3,2,1)
