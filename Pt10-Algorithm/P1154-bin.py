@@ -1,3 +1,4 @@
+#不知道为什么会wa
 def plus(n):
     r = 1
     for i in range(1,n+1):
@@ -12,4 +13,4 @@ while idx < len(data):
     k = int(data[idx]);idx += 1
     if n == 0 and k == 0:
         break
-    print(int(plus(n)/(plus(k)*plus(n-k))))
+    print(int(plus(n)//(plus(k)*plus(n-k))))
